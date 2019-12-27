@@ -7,8 +7,9 @@
 #include <d3d12.h>
 #include <DirectXMath.h>
 #include <DirectXPackedVector.h>
-//#include <d3d9.h>
-//#include <d3dx9.h>
+
+using namespace DirectX;
+using namespace DirectX::PackedVector;
 
 #include <vector>
 #include <list>

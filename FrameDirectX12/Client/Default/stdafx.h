@@ -20,11 +20,6 @@
 
 // 여기서 프로그램에 필요한 추가 헤더를 참조합니다.
 #include <d3d12.h>
-#include <DirectXMath.h>
-#include <DirectXPackedVector.h>
-//#include <d3d9.h>
-//#include <d3dx9.h>
-
 #include <iostream>
 #include <vector>
 #include <list>
@@ -35,4 +30,16 @@
 #include <ctime>
 #include <process.h>
 
+#include <DirectXMath.h>
+#include <DirectXPackedVector.h>
+
+using namespace DirectX;
+using namespace DirectX::PackedVector;
+
 #pragma warning(disable : 4251)
+
+#ifdef UNICODE
+#pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console") 
+#else
+#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console") 
+#endif

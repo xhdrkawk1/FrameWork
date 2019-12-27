@@ -55,11 +55,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // 기본 메시지 루프입니다:
 	while (true)
 	{
+		/*____________________________________________________________________
+		종료 메시지가 발생할 때 까지 구동.
+		______________________________________________________________________*/
+		if (WM_QUIT == msg.message)
+			break;
+
 		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
 		{
-			if (WM_QUIT == msg.message)
-				break;
-
 			if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
 			{
 				TranslateMessage(&msg);
@@ -68,12 +71,19 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		}
 		else
 		{
+			/*____________________________________________________________________
+			MainApp - Update & Rendering.
+			______________________________________________________________________*/
 			pMainApp->Update_MainApp(0.f);
 			pMainApp->LateUpdate_MainApp(0.f);
 			pMainApp->Render_Object();
 		}
 	}
 
+	/*____________________________________________________________________
+	MainApp 소멸.
+	강제적으로 RefCnt를 0으로 만들어준다.
+	______________________________________________________________________*/
 	_ulong dwRefCnt = 0;
 
 	if (dwRefCnt = Safe_Release(pMainApp))

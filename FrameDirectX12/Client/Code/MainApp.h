@@ -11,8 +11,8 @@ private:
 
 public:
 	HRESULT Ready_MainApp();
-	int		Update_MainApp(const _float& fTimeDelta = 0);
-	void	LateUpdate_MainApp(const _float& fTimeDelta = 0);
+	_int	Update_MainApp(const _float& fTimeDelta = 0.f);
+	void	LateUpdate_MainApp(const _float& fTimeDelta = 0.f);
 	void	Render_Object();
 
 public:

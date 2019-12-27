@@ -20,8 +20,6 @@ HRESULT CMainApp::Ready_MainApp()
 
 int CMainApp::Update_MainApp(const _float & fTimeDelta)
 {
-
-
 	return NO_EVENT;
 }
 

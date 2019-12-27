@@ -112,6 +112,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3dcompiler.lib;D3D12.lib;dxgi.lib;dxguid.lib;dinput8.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -158,6 +159,7 @@
     <ClInclude Include="..\Header\Function.h" />
     <ClInclude Include="..\Header\Include.h" />
     <ClInclude Include="..\Header\Macro.h" />
+    <ClInclude Include="..\Header\Struct.h" />
     <ClInclude Include="..\Header\Typedef.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Resource.h" />

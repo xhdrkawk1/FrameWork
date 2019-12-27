@@ -18,8 +18,9 @@ typedef	unsigned long		_ulong;
 typedef	float				_float;
 typedef	double				_double;
 
-//typedef	D3DXVECTOR2			_vec2;
-//typedef	D3DXVECTOR3			_vec3;
-//typedef	D3DXVECTOR4			_vec4;
-//
-//typedef	D3DXMATRIX			_matrix;
+typedef XMVECTOR			_vector;
+typedef XMFLOAT2			_float2;
+typedef XMFLOAT3			_float3;
+typedef XMFLOAT4			_float4;
+
+typedef	XMMATRIX			_matrix;
