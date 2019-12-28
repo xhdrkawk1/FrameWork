@@ -7,8 +7,7 @@ BEGIN(Engine)
 여러 개의 Timer 클래스들을 map 컨테이너로 관리할 TimerMgr.
 ______________________________________________________________________*/
 
-class ENGINE_DLL CTimerMgr
-	: public CBase
+class ENGINE_DLL CTimerMgr: public CBase
 {
 	DECLARE_SINGLETON(CTimerMgr)
 
@@ -27,7 +26,7 @@ private:
 private:
 	unordered_map<wstring, CTimer*>	m_mapTimer;
 
-public:
+private:
 	virtual void Free(void);
 };
 

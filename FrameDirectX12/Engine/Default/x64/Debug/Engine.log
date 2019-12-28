@@ -1,5 +1,9 @@
-﻿  FrameMgr.cpp
+﻿  DirectInput.cpp
+  DirectSound.cpp
+  Frame.cpp
+  FrameMgr.cpp
   TimeMgr.cpp
+  Timer.cpp
   코드를 생성하고 있습니다...
      ../Bin\Engine.lib 라이브러리 및 ../Bin\Engine.exp 개체를 생성하고 있습니다.
   Engine.vcxproj -> D:\02. KPU\00.Project\FrameDirectX12\Engine\Default\../Bin\Engine.dll

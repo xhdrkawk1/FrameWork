@@ -56,7 +56,7 @@ BOOL CALLBACK EnumObjectsCallback(const DIDEVICEOBJECTINSTANCE* pdidoi,
 USING(Engine)
 IMPLEMENT_SINGLETON(CDirectInput)
 
-Engine::CDirectInput::CDirectInput(void)
+Engine::CDirectInput::CDirectInput()
 	: m_directInput(0)
 	, m_keyboard(0)
 	, m_mouse(0)

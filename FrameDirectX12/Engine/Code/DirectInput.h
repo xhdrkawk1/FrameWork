@@ -21,7 +21,7 @@ public:
 	HRESULT ReadKeyboard();
 	HRESULT ReadGamePad();
 	HRESULT ReadMouse();
-	void ProcessInput();
+	void	ProcessInput();
 
 public:
 	HRESULT	Ready_InputDev(HINSTANCE hInst, HWND hWnd, int screenWidth, int screenHeight);

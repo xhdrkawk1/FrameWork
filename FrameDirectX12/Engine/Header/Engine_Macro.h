@@ -47,37 +47,41 @@ namespace Engine
 	
 	#define FAILED_CHECK_RETURN_MSG( _hr, _return, _message)	if( ((HRESULT)(_hr)) < 0 )	\
 	{ MessageBoxW(NULL, _message, L"System Message",MB_OK); __debugbreak();return _return;}
-
-
-
-	#define NO_COPY(CLASSNAME)						\
-	private:										\
-	CLASSNAME(const CLASSNAME&);					\
-	CLASSNAME& operator = (const CLASSNAME&);		
-
-	#define DECLARE_SINGLETON(CLASSNAME)			\
-	NO_COPY(CLASSNAME)								\
-	private:										\
-	static CLASSNAME*	m_pInstance;				\
-	public:											\
-	static CLASSNAME*	GetInstance( void );		\
-	static void DestroyInstance( void );			
-
-	#define IMPLEMENT_SINGLETON(CLASSNAME)			\
-	CLASSNAME*	CLASSNAME::m_pInstance = NULL;		\
-	CLASSNAME*	CLASSNAME::GetInstance( void )	{	\
-		if(NULL == m_pInstance) {					\
-			m_pInstance = new CLASSNAME;			\
-		}											\
-		return m_pInstance;							\
-	}												\
-	void CLASSNAME::DestroyInstance( void ) {		\
-		if(NULL != m_pInstance)	{					\
-			m_pInstance->Release();					\
-			m_pInstance = NULL;						\
-		}											\
-	}
 }
 
+#define NO_COPY(CLASSNAME)								\
+private:												\
+CLASSNAME(const CLASSNAME&);							\
+CLASSNAME& operator = (const CLASSNAME&);	
 
+#define DECLARE_SINGLETON(CLASSNAME)					\
+NO_COPY(CLASSNAME)										\
+private:												\
+	static CLASSNAME* m_pInstance;						\
+public:													\
+	static CLASSNAME* Get_Instance(void);				\
+public:													\
+	unsigned long Destroy_Instance(void);
+
+#define IMPLEMENT_SINGLETON(CLASSNAME)					\
+CLASSNAME* CLASSNAME::m_pInstance = nullptr;			\
+CLASSNAME* CLASSNAME::Get_Instance(void)				\
+{														\
+	if(nullptr == m_pInstance)							\
+	{													\
+		m_pInstance = new CLASSNAME;					\
+	}													\
+	return m_pInstance;									\
+}														\
+unsigned long CLASSNAME::Destroy_Instance(void)			\
+{														\
+	unsigned long dwRefCnt = 0;							\
+	if (nullptr != m_pInstance)							\
+	{													\
+		dwRefCnt = m_pInstance->Release();				\
+		if (0 == dwRefCnt)								\
+			m_pInstance = nullptr;						\
+	}													\
+	return dwRefCnt;									\
+}
 #endif // Engine_Macro_h__
