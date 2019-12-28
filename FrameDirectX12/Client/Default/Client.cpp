@@ -268,6 +268,12 @@ _ulong Release_Singleton()
 {
 	_ulong dwRefCnt = 0;
 
+	if (dwRefCnt = Engine::CMathMgr::Get_Instance()->Destroy_Instance())
+	{
+		MSG_BOX(L"CMathMgr Release Failed");
+		return dwRefCnt;
+	}
+
 	if (dwRefCnt = Engine::CTimerMgr::Get_Instance()->Destroy_Instance())
 	{
 		MSG_BOX(L"CTimerMgr Release Failed");

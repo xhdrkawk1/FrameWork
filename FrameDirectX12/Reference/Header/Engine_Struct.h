@@ -1,8 +1,6 @@
 #ifndef Engine_Struct_h__
 #define Engine_Struct_h__
 
-#include <DirectXMath.h>
-
 USING(std)
 USING(Engine)
 USING(DirectX)

@@ -7,8 +7,7 @@ BEGIN(Engine)
 여러 개의 Frame들을 map컨테이너로 관리하는 Mgr클래스.
 ______________________________________________________________________*/
 
-class ENGINE_DLL CFrameMgr :
-	public CBase
+class ENGINE_DLL CFrameMgr : public CBase
 {
 	DECLARE_SINGLETON(CFrameMgr)
 

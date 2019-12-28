@@ -162,7 +162,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\Code\MainApp.h" />
-    <ClInclude Include="..\Code\MathMgr.h" />
     <ClInclude Include="..\Header\Const.h" />
     <ClInclude Include="..\Header\Define.h" />
     <ClInclude Include="..\Header\Extern.h" />
@@ -178,7 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\MainApp.cpp" />
-    <ClCompile Include="..\Code\MathMgr.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -31,8 +31,7 @@ BEGIN(Engine)
 #define MAX_VOLUME 100
 #define MIN_VOLUME 0
 
-class ENGINE_DLL CDirectSound
-	: public CBase
+class ENGINE_DLL CDirectSound : public CBase
 {
 	DECLARE_SINGLETON(CDirectSound)
 private:

@@ -16,8 +16,26 @@ CMainApp::~CMainApp()
 
 HRESULT CMainApp::Ready_MainApp()
 {
-
 	FAILED_CHECK_RETURN(SetUp_DefaultSetting(), E_FAIL);
+
+	// 행렬 및 벡터 초기화.
+	_matrix temp	= INIT_MATRIX;
+	temp			= MatrixInverse(temp);
+
+	_vec2	v1		= INIT_VEC2(3.f);
+	_vec3	v2		= INIT_VEC3(3.f);
+	_vec4	v3		= INIT_VEC4(3.f);
+
+	v1.Print();
+	v2.Print();
+	v3.Print();
+
+	// TransformCoord & TransformNormal
+	_matrix matWorld = INIT_MATRIX;
+	_vec3 out_coord;
+	_vec3 out_normal;
+	TransformCoord(&out_coord, &g_vLook, &matWorld);
+	TransformNormal(&out_normal, &g_vLook, &matWorld);
 
 	return S_OK;
 }

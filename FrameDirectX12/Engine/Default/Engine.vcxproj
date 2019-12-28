@@ -167,6 +167,7 @@ call CopyEngine.bat</Command>
     <ClInclude Include="..\Code\DirectSound.h" />
     <ClInclude Include="..\Code\Frame.h" />
     <ClInclude Include="..\Code\FrameMgr.h" />
+    <ClInclude Include="..\Code\MathMgr.h" />
     <ClInclude Include="..\Code\TimeMgr.h" />
     <ClInclude Include="..\Code\Timer.h" />
     <ClInclude Include="..\Header\Engine_Enum.h" />
@@ -182,6 +183,7 @@ call CopyEngine.bat</Command>
     <ClCompile Include="..\Code\DirectSound.cpp" />
     <ClCompile Include="..\Code\Frame.cpp" />
     <ClCompile Include="..\Code\FrameMgr.cpp" />
+    <ClCompile Include="..\Code\MathMgr.cpp" />
     <ClCompile Include="..\Code\TimeMgr.cpp" />
     <ClCompile Include="..\Code\Timer.cpp" />
   </ItemGroup>

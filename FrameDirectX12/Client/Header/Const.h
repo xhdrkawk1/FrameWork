@@ -15,3 +15,5 @@ const _uint VTXITV	= 1;
 
 const _float PI			= 3.141592f;
 const _float GRAVITY	= 9.8f;
+
+const _vec3	g_vLook{ 0.f, 0.f, 1.f };

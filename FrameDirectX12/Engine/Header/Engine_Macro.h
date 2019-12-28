@@ -84,4 +84,11 @@ unsigned long CLASSNAME::Destroy_Instance(void)			\
 	}													\
 	return dwRefCnt;									\
 }
+
+
+#define INIT_MATRIX			XMMatrixIdentity()
+#define INIT_VEC2(input)	_vec2(input, input);
+#define INIT_VEC3(input)	_vec3(input, input, input);
+#define INIT_VEC4(input)	_vec4(input, input, input, input);
+
 #endif // Engine_Macro_h__

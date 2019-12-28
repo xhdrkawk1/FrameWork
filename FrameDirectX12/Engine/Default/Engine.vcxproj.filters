@@ -28,6 +28,12 @@
     <Filter Include="01.Utility">
       <UniqueIdentifier>{25d15806-6753-4698-8252-0d259d186107}</UniqueIdentifier>
     </Filter>
+    <Filter Include="98.Mgr">
+      <UniqueIdentifier>{37799aed-be29-4cee-8d59-a49c737f5a54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="98.Mgr\MathMgr">
+      <UniqueIdentifier>{12ba79eb-3f19-453e-a53b-bfefe320abdf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Header\Engine_Functor.h">
@@ -69,6 +75,9 @@
     <ClInclude Include="..\Code\TimeMgr.h">
       <Filter>00.System\01.Timer</Filter>
     </ClInclude>
+    <ClInclude Include="..\Code\MathMgr.h">
+      <Filter>98.Mgr\MathMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\DirectInput.cpp">
@@ -88,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="..\Code\TimeMgr.cpp">
       <Filter>00.System\01.Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\MathMgr.cpp">
+      <Filter>98.Mgr\MathMgr</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
