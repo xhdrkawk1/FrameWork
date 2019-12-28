@@ -1,6 +1,7 @@
 #pragma once
 
 typedef bool				_bool;
+
 typedef	signed char			_byte;
 typedef	unsigned char		_ubyte;
 

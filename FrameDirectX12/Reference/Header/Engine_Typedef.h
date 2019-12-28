@@ -3,6 +3,8 @@
 
 namespace Engine
 {
+	typedef bool				_bool;
+
 	typedef	signed char			_byte;
 	typedef	unsigned char		_ubyte;
 
@@ -17,7 +19,6 @@ namespace Engine
 	typedef	signed long			_long;
 	typedef	unsigned long		_ulong;
 
-	typedef bool				_bool;
 	typedef	float				_float;
 	typedef	double				_double;
 
