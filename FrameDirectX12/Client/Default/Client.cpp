@@ -4,15 +4,21 @@
 #include "stdafx.h"
 #include "Client.h"
 #include "MainApp.h"
-
+#include "TimeMgr.h"
+#include "FrameMgr.h"
+#include "DirectInput.h"
+#include "DirectSound.h"
 
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
+
 HINSTANCE	g_hInst;							// 현재 인스턴스입니다.
 HWND		g_hWnd;
+
+_ulong Release_Singleton();
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -52,6 +58,31 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	if (nullptr == pMainApp)
 		return FALSE;
 
+	/*____________________________________________________________________
+	Timer 생성.
+	Timer_TimeDelta : GameObject들이 공통적으로 사용할 Timer
+	Timer_FPS60		: FPS를 60으로 제한하기 위해 사용할 Timer
+	______________________________________________________________________*/
+	if (FAILED(Engine::CTimerMgr::Get_Instance()->Ready_Timer(L"Timer_TimeDelta")))
+	{
+		Engine::CTimerMgr::Get_Instance()->Destroy_Instance();
+		return FALSE;
+	}
+	if (FAILED(Engine::CTimerMgr::Get_Instance()->Ready_Timer(L"Timer_FPS60")))
+	{
+		Engine::CTimerMgr::Get_Instance()->Destroy_Instance();
+		return FALSE;
+	}
+
+	/*____________________________________________________________________
+	Frame 생성.
+	______________________________________________________________________*/
+	if (FAILED(Engine::CFrameMgr::Get_Instance()->Ready_Frame(L"Frame60", 60.f)))
+	{
+		Engine::CFrameMgr::Get_Instance()->Destroy_Instance();
+		return FALSE;
+	}
+
     // 기본 메시지 루프입니다:
 	while (true)
 	{
@@ -72,23 +103,50 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		else
 		{
 			/*____________________________________________________________________
-			MainApp - Update & Rendering.
+			프레임 제한에 사용할 Timer를 갱신. (Timer_FPS60)
 			______________________________________________________________________*/
-			pMainApp->Update_MainApp(0.f);
-			pMainApp->LateUpdate_MainApp(0.f);
-			pMainApp->Render_Object();
+			Engine::CTimerMgr::Get_Instance()->SetUp_TimeDelta(L"Timer_FPS60");
+			_float fTime_FPS60 = Engine::CTimerMgr::Get_Instance()->Get_TimeDelta(L"Timer_FPS60");
+
+			/*____________________________________________________________________
+			1초에 60번만 호출되도록 조건문 사용.
+			______________________________________________________________________*/
+			if (Engine::CFrameMgr::Get_Instance()->IsPermit_Call(L"Frame60", fTime_FPS60))
+			{
+				/*____________________________________________________________________
+				GameObject들이 공통적으로 사용할 Timer 갱신. (Timer_TimeDelta)
+				______________________________________________________________________*/
+				Engine::CTimerMgr::Get_Instance()->SetUp_TimeDelta(L"Timer_TimeDelta");
+				_float fTime_TimeDelta = Engine::CTimerMgr::Get_Instance()->Get_TimeDelta(L"Timer_TimeDelta");
+
+				/*____________________________________________________________________
+				MainApp - Update & Rendering.
+				______________________________________________________________________*/
+				pMainApp->Update_MainApp(fTime_TimeDelta);
+				pMainApp->LateUpdate_MainApp(fTime_TimeDelta);
+				pMainApp->Render_Object(fTime_TimeDelta);
+			}
 		}
 	}
 
 	/*____________________________________________________________________
-	MainApp 소멸.
+	MainApp 제거.
 	강제적으로 RefCnt를 0으로 만들어준다.
 	______________________________________________________________________*/
 	_ulong dwRefCnt = 0;
 
-	if (dwRefCnt = Safe_Release(pMainApp))
+	if (dwRefCnt = Engine::Safe_Release(pMainApp))
 	{
 		MSG_BOX(L"MainApp Release Failed");
+		return FALSE;
+	}
+
+	/*____________________________________________________________________
+	싱글톤 객체 제거.
+	______________________________________________________________________*/
+	if (dwRefCnt = Release_Singleton())
+	{
+		MSG_BOX(L"Singleton Release Failed");
 		return FALSE;
 	}
 
@@ -204,4 +262,35 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
     return 0;
+}
+
+_ulong Release_Singleton()
+{
+	_ulong dwRefCnt = 0;
+
+	if (dwRefCnt = Engine::CTimerMgr::Get_Instance()->Destroy_Instance())
+	{
+		MSG_BOX(L"CTimerMgr Release Failed");
+		return dwRefCnt;
+	}
+
+	if (dwRefCnt = Engine::CFrameMgr::Get_Instance()->Destroy_Instance())
+	{
+		MSG_BOX(L"CFrameMgr Release Failed");
+		return dwRefCnt;
+	}
+
+	if (dwRefCnt = Engine::CDirectInput::Get_Instance()->Destroy_Instance())
+	{
+		MSG_BOX(L"CDirectInput Release Failed");
+		return dwRefCnt;
+	}
+
+	if (dwRefCnt = Engine::CDirectSound::Get_Instance()->Destroy_Instance())
+	{
+		MSG_BOX(L"CDirectSound Release Failed");
+		return dwRefCnt;
+	}
+
+	return dwRefCnt;
 }

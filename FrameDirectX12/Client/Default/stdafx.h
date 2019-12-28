@@ -23,11 +23,11 @@
 #include <DirectXMath.h>
 #include <DirectXPackedVector.h>
 #include <iostream>
+#include <string>
 #include <vector>
 #include <list>
 #include <map>
 #include <unordered_map>
-#include <string>
 #include <algorithm>
 #include <functional>
 #include <ctime>
@@ -41,8 +41,6 @@ using namespace std;
 Manager Class
 ______________________________________________________________________*/
 #include "MathMgr.h"
-
-
 
 /*____________________________________________________________________
 Window Console창.

@@ -54,11 +54,11 @@
     <ClInclude Include="..\Header\Extern.h">
       <Filter>98.Header</Filter>
     </ClInclude>
-    <ClInclude Include="..\Header\Struct.h">
-      <Filter>98.Header</Filter>
-    </ClInclude>
     <ClInclude Include="..\Code\MathMgr.h">
       <Filter>97.Mgr\MathMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Struct.h">
+      <Filter>98.Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

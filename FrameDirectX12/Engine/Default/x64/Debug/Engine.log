@@ -1,10 +1,4 @@
-﻿  DirectInput.cpp
-  DirectSound.cpp
-  Frame.cpp
-  FrameMgr.cpp
-  TimeMgr.cpp
-  Timer.cpp
-  코드를 생성하고 있습니다...
+﻿  DirectSound.cpp
      ../Bin\Engine.lib 라이브러리 및 ../Bin\Engine.exp 개체를 생성하고 있습니다.
   Engine.vcxproj -> D:\02. KPU\00.Project\FrameDirectX12\Engine\Default\../Bin\Engine.dll
   '//'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는

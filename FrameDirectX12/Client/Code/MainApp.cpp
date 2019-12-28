@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "MainApp.h"
+#include "DirectInput.h"
+#include "DirectSound.h"
 
 
 CMainApp::CMainApp()
@@ -15,37 +17,54 @@ CMainApp::~CMainApp()
 HRESULT CMainApp::Ready_MainApp()
 {
 
+	FAILED_CHECK_RETURN(SetUp_DefaultSetting(), E_FAIL);
+
 	return S_OK;
 }
 
-int CMainApp::Update_MainApp(const _float & fTimeDelta)
+_int CMainApp::Update_MainApp(const _float & fTimeDelta)
 {
-	_matrix temp;
-
-	_matrix matScale;
-	_matrix matRotX;
-	_matrix matTrans;
-
-	_matrix matWorld;
-
-	matWorld = matScale * matRotX * matTrans;
-
-	temp = CMathMgr::MatrixInverse(temp);
-
-	_vec3 v;
-	v.Normalize();
+	/*____________________________________________________________________
+	Direct Input
+	______________________________________________________________________*/
+	Engine::CDirectInput::Get_Instance()->Update_InputDev();
 
 	return NO_EVENT;
 }
 
-void CMainApp::LateUpdate_MainApp(const _float & fTimeDelta)
+_int CMainApp::LateUpdate_MainApp(const _float & fTimeDelta)
+{
+	
+	return NO_EVENT;
+}
+
+void CMainApp::Render_Object(const _float& fTimeDelta)
 {
 
 }
 
-void CMainApp::Render_Object()
+HRESULT CMainApp::SetUp_DefaultSetting()
 {
+	/*____________________________________________________________________
+	DirectInput 장치 초기화.
+	______________________________________________________________________*/
+	if (FAILED(Engine::CDirectInput::Get_Instance()->Ready_InputDev(g_hInst, g_hWnd, WINCX, WINCY)))
+	{
+		CDirectInput::Get_Instance()->Destroy_Instance();
+		return E_FAIL;
+	}
 
+	/*____________________________________________________________________
+	DirectSound 초기화.
+	______________________________________________________________________*/
+	//if (FAILED(Engine::CDirectSound::Get_Instance()->Ready_DirectSound(g_hWnd)))
+	//{
+	//	CDirectSound::Get_Instance()->Destroy_Instance();
+	//	return E_FAIL;
+	//}
+	//Engine::CDirectSound::Get_Instance()->LoadDirectSoundFile(L"Logo_BGM");
+
+	return S_OK;
 }
 
 CMainApp * CMainApp::Create()

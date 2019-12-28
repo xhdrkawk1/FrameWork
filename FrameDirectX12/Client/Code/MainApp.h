@@ -11,9 +11,11 @@ private:
 
 public:
 	HRESULT Ready_MainApp();
-	_int	Update_MainApp(const _float& fTimeDelta = 0.f);
-	void	LateUpdate_MainApp(const _float& fTimeDelta = 0.f);
-	void	Render_Object();
+	_int	Update_MainApp(const _float& fTimeDelta);
+	_int	LateUpdate_MainApp(const _float& fTimeDelta);
+	void	Render_Object(const _float& fTimeDelta);
+private:
+	HRESULT	SetUp_DefaultSetting();
 
 public:
 	static CMainApp*	Create();

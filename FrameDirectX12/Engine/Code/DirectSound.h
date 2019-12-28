@@ -45,7 +45,7 @@ public:
 	/*____________________________________________________________________
 	Normal Sound
 	______________________________________________________________________*/
-	HRESULT					LoadDirectSoundFile(TCHAR* filename);
+	HRESULT					LoadDirectSoundFile(const wstring wstrFilename);
 	void					PlayDirectSoundFile(const wstring wstrSoundKey, 
 												bool Loop = false, 
 												int Volume = MAX_VOLUME);
@@ -58,17 +58,17 @@ public:
 	/*____________________________________________________________________
 	3D Sound
 	______________________________________________________________________*/
-	//HRESULT					Load3DSoundFile(TCHAR* filename);
-	//void					Play3DSoundFile(const wstring wstrSoundKey, 
-	//										_vec3 vPos, 
-	//										float Max, 
-	//										float Min, 
-	//										bool Loop = false, 
-	//										int Volume = MAX_VOLUME);
-	//void					Stop3DSoundFile(const wstring wstrSoundKey);
-	//void					SetListenerPos(const _vec3& vPos);
-	//const _vec3&			GetListenerPos();
-	//void					Set3DSoundPos(const wstring wstrSoundKey, const _vec3& vPos);
+	HRESULT					Load3DSoundFile(TCHAR* filename);
+	void					Play3DSoundFile(const wstring wstrSoundKey, 
+											_vec3 vPos, 
+											float Max, 
+											float Min, 
+											bool Loop = false, 
+											int Volume = MAX_VOLUME);
+	void					Stop3DSoundFile(const wstring wstrSoundKey);
+	void					SetListenerPos(const _vec3& vPos);
+	// const _vec3&			GetListenerPos();
+	void					Set3DSoundPos(const wstring wstrSoundKey, const _vec3& vPos);
 	/*____________________________________________________________________
 	Deafult
 	______________________________________________________________________*/
