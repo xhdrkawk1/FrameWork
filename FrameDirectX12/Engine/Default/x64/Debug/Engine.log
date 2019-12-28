@@ -1,0 +1,29 @@
+﻿  DirectInput.cpp
+  DirectSound.cpp
+  Frame.cpp
+  FrameMgr.cpp
+  TimeMgr.cpp
+  Timer.cpp
+  코드를 생성하고 있습니다...
+     ../Bin\Engine.lib 라이브러리 및 ../Bin\Engine.exp 개체를 생성하고 있습니다.
+  Engine.vcxproj -> D:\02. KPU\00.Project\FrameDirectX12\Engine\Default\../Bin\Engine.dll
+  '//'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는
+  배치 파일이 아닙니다.
+          1개 파일이 복사되었습니다.
+          1개 파일이 복사되었습니다.
+          1개 파일이 복사되었습니다.
+  .\Engine\Code\DirectInput.h
+  .\Engine\Code\DirectSound.h
+  .\Engine\Code\Frame.h
+  .\Engine\Code\FrameMgr.h
+  .\Engine\Code\TimeMgr.h
+  .\Engine\Code\Timer.h
+          6개 파일이 복사되었습니다.
+  .\Engine\Header\Engine_Enum.h
+  .\Engine\Header\Engine_Function.h
+  .\Engine\Header\Engine_Functor.h
+  .\Engine\Header\Engine_Include.h
+  .\Engine\Header\Engine_Macro.h
+  .\Engine\Header\Engine_Struct.h
+  .\Engine\Header\Engine_Typedef.h
+          7개 파일이 복사되었습니다.

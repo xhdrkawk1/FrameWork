@@ -15,16 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.SuperClass", "02.SuperCl
 		SuperClass\Base.inl = SuperClass\Base.inl
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Header", "02.Header", "{64A8215D-7D23-4519-A0CE-0147569B4104}"
-	ProjectSection(SolutionItems) = preProject
-		Reference\Header\Engine_Enum.h = Reference\Header\Engine_Enum.h
-		Reference\Header\Engine_Function.h = Reference\Header\Engine_Function.h
-		Reference\Header\Engine_Functor.h = Reference\Header\Engine_Functor.h
-		Reference\Header\Engine_Include.h = Reference\Header\Engine_Include.h
-		Reference\Header\Engine_Macro.h = Reference\Header\Engine_Macro.h
-		Reference\Header\Engine_Struct.h = Reference\Header\Engine_Struct.h
-		Reference\Header\Engine_Typedef.h = Reference\Header\Engine_Typedef.h
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Default\Engine.vcxproj", "{65AE2EA8-2D08-4BBB-94C7-5E4DEAF32EBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,12 +33,21 @@ Global
 		{19B8493A-EE94-473A-A610-FA6C1C8CFA11}.Release|x64.Build.0 = Release|x64
 		{19B8493A-EE94-473A-A610-FA6C1C8CFA11}.Release|x86.ActiveCfg = Release|Win32
 		{19B8493A-EE94-473A-A610-FA6C1C8CFA11}.Release|x86.Build.0 = Release|Win32
+		{65AE2EA8-2D08-4BBB-94C7-5E4DEAF32EBB}.Debug|x64.ActiveCfg = Debug|x64
+		{65AE2EA8-2D08-4BBB-94C7-5E4DEAF32EBB}.Debug|x64.Build.0 = Debug|x64
+		{65AE2EA8-2D08-4BBB-94C7-5E4DEAF32EBB}.Debug|x86.ActiveCfg = Debug|Win32
+		{65AE2EA8-2D08-4BBB-94C7-5E4DEAF32EBB}.Debug|x86.Build.0 = Debug|Win32
+		{65AE2EA8-2D08-4BBB-94C7-5E4DEAF32EBB}.Release|x64.ActiveCfg = Release|x64
+		{65AE2EA8-2D08-4BBB-94C7-5E4DEAF32EBB}.Release|x64.Build.0 = Release|x64
+		{65AE2EA8-2D08-4BBB-94C7-5E4DEAF32EBB}.Release|x86.ActiveCfg = Release|Win32
+		{65AE2EA8-2D08-4BBB-94C7-5E4DEAF32EBB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{19B8493A-EE94-473A-A610-FA6C1C8CFA11} = {3F93C074-79C7-48F2-B04B-9CF3BEDCC418}
+		{65AE2EA8-2D08-4BBB-94C7-5E4DEAF32EBB} = {62947452-6ED8-43C5-BE83-BA7BF5BB270F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DD147EA2-3482-4F83-9C8E-36AE53C2DD22}

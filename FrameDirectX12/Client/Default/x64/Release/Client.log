@@ -1,0 +1,9 @@
+﻿  stdafx.cpp
+  MainApp.cpp
+  MathMgr.cpp
+  Client.cpp
+     ../Release\Client.lib 라이브러리 및 ../Release\Client.exp 개체를 생성하고 있습니다.
+  코드를 생성하고 있습니다.
+  All 76 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  Client.vcxproj -> D:\02. KPU\00.Project\FrameDirectX12\Client\Default\../Release\Client.exe
