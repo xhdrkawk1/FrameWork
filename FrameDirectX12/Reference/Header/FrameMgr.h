@@ -23,7 +23,7 @@ private:
 	CFrame*	Find_Frame(wstring wstrFrameTag);
 
 private:
-	map<wstring, CFrame*>	m_mapFrame;
+	unordered_map<wstring, CFrame*>	m_mapFrame;
 
 public:
 	virtual void Free();

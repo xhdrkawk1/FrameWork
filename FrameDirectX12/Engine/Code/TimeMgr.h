@@ -25,7 +25,7 @@ private:
 	CTimer*	Find_Timer(wstring wstrTimerTag);
 
 private:
-	map<wstring, CTimer*>	m_mapTimer;
+	unordered_map<wstring, CTimer*>	m_mapTimer;
 
 public:
 	virtual void Free(void);
