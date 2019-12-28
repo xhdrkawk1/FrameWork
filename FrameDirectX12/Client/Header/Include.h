@@ -7,5 +7,3 @@
 #include "Extern.h"
 #include "Function.h"
 #include "Macro.h"
-
-using namespace std;

@@ -20,6 +20,20 @@ HRESULT CMainApp::Ready_MainApp()
 
 int CMainApp::Update_MainApp(const _float & fTimeDelta)
 {
+	_matrix temp;
+
+	_matrix matScale;
+	_matrix matRotX;
+	_matrix matTrans;
+
+	_matrix matWorld;
+
+	matWorld = matScale * matRotX * matTrans;
+
+	temp = CMathMgr::MatrixInverse(temp);
+
+	_vec3 v;
+	v.Normalize();
 
 	return NO_EVENT;
 }

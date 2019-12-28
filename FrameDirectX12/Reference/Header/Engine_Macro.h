@@ -47,12 +47,12 @@ namespace Engine
 
 
 
-	#define NO_COPY(CLASSNAME)							\
+	#define NO_COPY(CLASSNAME)						\
 	private:										\
 	CLASSNAME(const CLASSNAME&);					\
 	CLASSNAME& operator = (const CLASSNAME&);		
 
-	#define DECLARE_SINGLETON(CLASSNAME)				\
+	#define DECLARE_SINGLETON(CLASSNAME)			\
 	NO_COPY(CLASSNAME)								\
 	private:										\
 	static CLASSNAME*	m_pInstance;				\
@@ -60,7 +60,7 @@ namespace Engine
 	static CLASSNAME*	GetInstance( void );		\
 	static void DestroyInstance( void );			
 
-	#define IMPLEMENT_SINGLETON(CLASSNAME)				\
+	#define IMPLEMENT_SINGLETON(CLASSNAME)			\
 	CLASSNAME*	CLASSNAME::m_pInstance = NULL;		\
 	CLASSNAME*	CLASSNAME::GetInstance( void )	{	\
 		if(NULL == m_pInstance) {					\

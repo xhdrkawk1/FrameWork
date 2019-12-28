@@ -8,9 +8,6 @@
 #include <DirectXMath.h>
 #include <DirectXPackedVector.h>
 
-using namespace DirectX;
-using namespace DirectX::PackedVector;
-
 #include <vector>
 #include <list>
 #include <map>
@@ -31,6 +28,8 @@ using namespace DirectX::PackedVector;
 #define DIRECTINPUT_VERSION		0x0800
 #include <dinput.h>
 
+using namespace DirectX;
+using namespace DirectX::PackedVector;
 using namespace std;
 
 #endif // Engine_Include_h__

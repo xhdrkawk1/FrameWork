@@ -66,7 +66,7 @@ namespace Engine
 			this->y = XMVectorGetY(temp);
 		}
 
-		_float Length()
+		_float Get_Length()
 		{
 			XMVECTOR temp = XMVectorSet(this->x, this->y, 0.f, 0.f);
 			temp = XMVector2Length(temp);
@@ -74,7 +74,7 @@ namespace Engine
 			return XMVectorGetX(temp);
 		}
 
-		_float Distance(const tagVector2& vDst)
+		_float Get_Distance(const tagVector2& vDst)
 		{
 			XMVECTOR dst = XMVectorSet(vDst.x, vDst.y, 0.f, 0.f);
 			XMVECTOR src = XMVectorSet(this->x, this->y, 0.f, 0.f);
@@ -83,6 +83,17 @@ namespace Engine
 			result = XMVector2Length(result);
 
 			return XMVectorGetX(result);
+		}
+
+		_float Get_Angle(const tagVector2& vDst)
+		{
+			XMVECTOR v1 = XMVectorSet(vDst.x, vDst.y, 0.f, 0.f);
+			XMVECTOR v2 = XMVectorSet(this->x, this->y, 0.f, 0.f);
+
+			XMVECTOR angle = XMVector2AngleBetweenVectors(v1, v2);
+			_float	angleRadians = XMVectorGetX(angle);
+
+			return XMConvertToDegrees(angleRadians);
 		}
 
 		_float Dot(const tagVector2& vDst)
@@ -109,17 +120,6 @@ namespace Engine
 			XMVECTOR result = XMVector2Cross(dst, src);
 
 			return tagVector2(XMVectorGetX(result), XMVectorGetY(result));
-		}
-
-		_float Angle(const tagVector2& vDst)
-		{
-			XMVECTOR v1 = XMVectorSet(vDst.x, vDst.y, 0.f, 0.f);
-			XMVECTOR v2 = XMVectorSet(this->x, this->y, 0.f, 0.f);
-
-			XMVECTOR angle = XMVector2AngleBetweenVectors(v1, v2);
-			_float	angleRadians = XMVectorGetX(angle);
-
-			return XMConvertToDegrees(angleRadians);
 		}
 
 		void Print() { cout << "x : " << this->x << "\t y : " << this->y << endl; }
@@ -190,7 +190,7 @@ namespace Engine
 			this->z = XMVectorGetZ(temp);
 		}
 
-		_float Length()
+		_float Get_Length()
 		{
 			XMVECTOR temp = XMVectorSet(this->x, this->y, this->z, 0.f);
 			temp = XMVector3Length(temp);
@@ -198,7 +198,7 @@ namespace Engine
 			return XMVectorGetX(temp);
 		}
 
-		_float Distance(const tagVector3& vDst)
+		_float Get_Distance(const tagVector3& vDst)
 		{
 			XMVECTOR dst = XMVectorSet(vDst.x, vDst.y, vDst.z, 0.f);
 			XMVECTOR src = XMVectorSet(this->x, this->y, this->z, 0.f);
@@ -207,6 +207,17 @@ namespace Engine
 			result = XMVector3Length(result);
 
 			return XMVectorGetX(result);
+		}
+
+		_float Get_Angle(const tagVector3& vDst)
+		{
+			XMVECTOR v1 = XMVectorSet(vDst.x, vDst.y, vDst.z, 0.f);
+			XMVECTOR v2 = XMVectorSet(this->x, this->y, this->z, 0.f);
+
+			XMVECTOR angle = XMVector3AngleBetweenVectors(v1, v2);
+			_float	angleRadians = XMVectorGetX(angle);
+
+			return XMConvertToDegrees(angleRadians);
 		}
 
 		_float Dot(const tagVector3& vDst)
@@ -233,17 +244,6 @@ namespace Engine
 			XMVECTOR result = XMVector3Cross(dst, src);
 
 			return tagVector3(XMVectorGetX(result), XMVectorGetY(result), XMVectorGetZ(result));
-		}
-
-		_float Angle(const tagVector3& vDst)
-		{
-			XMVECTOR v1 = XMVectorSet(vDst.x, vDst.y, vDst.z, 0.f);
-			XMVECTOR v2 = XMVectorSet(this->x, this->y, this->z, 0.f);
-
-			XMVECTOR angle = XMVector3AngleBetweenVectors(v1, v2);
-			_float	angleRadians = XMVectorGetX(angle);
-
-			return XMConvertToDegrees(angleRadians);
 		}
 
 		void Print() { cout << "x : " << this->x << "\t y : " << this->y << "\t z : " << this->z << endl; }
@@ -315,7 +315,7 @@ namespace Engine
 			this->w = XMVectorGetW(temp);
 		}
 
-		_float Length()
+		_float Get_Length()
 		{
 			XMVECTOR temp = XMVectorSet(this->x, this->y, this->z, this->w);
 			temp = XMVector4Length(temp);
@@ -323,7 +323,7 @@ namespace Engine
 			return XMVectorGetX(temp);
 		}
 
-		_float Distance(const tagVector4& vDst)
+		_float Get_Distance(const tagVector4& vDst)
 		{
 			XMVECTOR dst = XMVectorSet(vDst.x, vDst.y, vDst.z, vDst.w);
 			XMVECTOR src = XMVectorSet(this->x, this->y, this->z, this->w);
@@ -332,6 +332,17 @@ namespace Engine
 			result = XMVector4Length(result);
 
 			return XMVectorGetX(result);
+		}
+
+		_float Get_Angle(const tagVector4& vDst)
+		{
+			XMVECTOR v1 = XMVectorSet(this->x, this->y, this->z, this->w);
+			XMVECTOR v2 = XMVectorSet(vDst.x, vDst.y, vDst.z, vDst.w);
+
+			XMVECTOR angle = XMVector4AngleBetweenVectors(v1, v2);
+			_float	angleRadians = XMVectorGetX(angle);
+
+			return XMConvertToDegrees(angleRadians);
 		}
 
 		_float Dot(const tagVector4& vDst)
@@ -372,20 +383,10 @@ namespace Engine
 			return tagVector4(XMVectorGetX(result), XMVectorGetY(result), XMVectorGetZ(result), XMVectorGetW(result));
 		}
 
-		_float Angle(const tagVector4& vDst)
-		{
-			XMVECTOR v1 = XMVectorSet(this->x, this->y, this->z, this->w);
-			XMVECTOR v2 = XMVectorSet(vDst.x, vDst.y, vDst.z, vDst.w);
-
-			XMVECTOR angle = XMVector4AngleBetweenVectors(v1, v2);
-			_float	angleRadians = XMVectorGetX(angle);
-
-			return XMConvertToDegrees(angleRadians);
-		}
-
 		void Print() { cout << "x : " << this->x << "\t y : " << this->y << "\t z : " << this->z << "\t w : " << this->w << endl; }
 
 	}_vec4;
+
 
 	//typedef struct tagVertexColor
 	//{

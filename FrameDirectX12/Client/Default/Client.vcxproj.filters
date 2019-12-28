@@ -10,6 +10,12 @@
     <Filter Include="00.MainApp">
       <UniqueIdentifier>{d44c419a-06e7-4459-aa0b-865fac6ecdc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="97.Mgr">
+      <UniqueIdentifier>{27876c48-0016-46b3-87e1-89e8fb599f1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="97.Mgr\MathMgr">
+      <UniqueIdentifier>{e84352d3-01ab-41bb-9259-e5602a8b5a82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h">
@@ -51,6 +57,9 @@
     <ClInclude Include="..\Header\Struct.h">
       <Filter>98.Header</Filter>
     </ClInclude>
+    <ClInclude Include="..\Code\MathMgr.h">
+      <Filter>97.Mgr\MathMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -61,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="..\Code\MainApp.cpp">
       <Filter>00.MainApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\MathMgr.cpp">
+      <Filter>97.Mgr\MathMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
